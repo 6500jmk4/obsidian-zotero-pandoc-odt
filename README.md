@@ -258,114 +258,115 @@ When your ODT file first opens in LibreOffice:
 Never click **Unlink Citations** on your working copy. Unlinking converts fields to ordinary text and is irreversible. Use it only on a final duplicate if a publisher specifically requires plain text.
 
 
-> [!info] How citations work between Zotero and Obsidian
-> 
-> Zotero stores your sources. Obsidian is where you write. Pandoc provides a way to refer to those sources in your writing so they can become formatted citations later.
-> 
-> Instead of typing a citation by hand, such as `(Scott, 1986, p. 1067)`, you insert a short reference to the source in Obsidian:
-> 
+> [!NOTE]
+> ### How citations work between Zotero and Obsidian
+>
+> Zotero stores your sources. Obsidian is where you write. Pandoc provides a way to refer to those sources so they can become formatted citations later.
+>
+> Instead of typing a citation by hand, such as `(Scott, 1986, p. 1067)`, insert a short reference in Obsidian:
+>
 > `[@scottGenderUsefulCategory1986, p. 1067]`
-> 
-> This is called a Pandoc citation. The long string beginning with `@` is the source's citation key—a unique identifier that Zotero's Better BibTeX plugin assigns to the source.
-> 
-> When you export your writing, Pandoc uses that key to identify the correct source. Your citation-processing workflow then turns it into a citation formatted according to your chosen style, such as Chicago, APA, or MLA.
-> 
-> You do not need to memorize citation keys or type them yourself. You can copy or insert them from Zotero using your citation workflow.
-> 
-> ### Finding Citation Keys in Zotero
-> When you click on any item in your library, the citation key will display in Zotero's **Info** panel on the right side of the window. You can then copy the key and enter it directly into your Obsidian document. 
-> 
-> A Markdown manuscript stores only the key, not the complete bibliographic record. If the key changes in Zotero but the manuscript still contains the old key, the filter cannot resolve it.
-> 
-> Before a long project:
-> - settle on a key pattern;
-> - avoid bulk-regenerating keys without a reason;
-> - if you intentionally change a key, update the manuscript too;
+>
+> This is a **Pandoc citation**. The string beginning with `@` is the source’s **citation key**—a unique identifier assigned by Better BibTeX.
+>
+> When you export your writing, Pandoc uses that key to find the correct Zotero item. The citation is then formatted in your chosen style, such as Chicago, APA, or MLA.
+>
+> You do not need to memorize citation keys. Pandoc Reference List can suggest them as you type, or you can copy them from Zotero using Better BibTeX Quick Copy.
+>
+> #### Finding citation keys in Zotero
+>
+> Select an item in Zotero. Its citation key appears in the **Info** panel on the right. You can copy that key into your Obsidian document.
+>
+> A Markdown manuscript stores the key—not the complete bibliographic record. If a key changes in Zotero, citations containing the old key may no longer resolve.
+>
+> Before beginning a long project:
+>
+> - settle on a citation-key pattern;
+> - avoid regenerating keys without a reason;
+> - update the manuscript if you intentionally change a key; and
 > - keep Zotero synchronized and backed up.
->   
-> Changing Better BibTeX's key formula generally does not retroactively change existing keys until you explicitly refresh/regenerate them. See [Better BibTeX citation keys](https://retorque.re/zotero-better-bibtex/citing/).
-> 
-> 
-> 
-> ### 1. Citing a source
-> 
-> Suppose you are writing about Joan Scott's article on gender and history. You write your sentence in Obsidian and add the source in square brackets:
-> 
-> ```
+>
+> Changing Better BibTeX’s key formula generally does not change existing keys until you explicitly regenerate them. See [Better BibTeX citation keys](https://retorque.re/zotero-better-bibtex/citing/).
+>
+> #### 1. Citing a source
+>
+> Add the source in square brackets:
+>
+> ```markdown
 > This interpretation has been influential [@scottGenderUsefulCategory1986].
 > ```
-> 
-> The `@` tells Pandoc that what follows is a citation key. The square brackets tell it to treat the reference as a citation in parentheses or its equivalent in your chosen style.
-> 
-> #### Optional drag-and-drop citations from Zotero
-> Better BibTeX can make Zotero drag a Markdown citation such as `[@key]` into an editor. Its documentation describes a one-time Quick Copy setup:
-> 1. In Better BibTeX's Citation Keys preferences, choose a Markdown/Pandoc Quick Copy format.
-> 2. In Zotero's Export preferences, set **Default Output Format** to the matching Better BibTeX Quick Copy format.
-> 
-> Menus change across Zotero/Better BibTeX releases, so follow the current [drag-and-drop citation instructions](https://retorque.re/zotero-better-bibtex/citing/#drag-and-drophotkey-citations) if the wording differs. Typing `[@key]` manually remains valid.
-> 
-> ### 2. Citing a specific page
-> 
-> If you refer to a particular page, add the page number after a comma:
-> 
-> ```
+>
+> The `@` introduces a citation key. The square brackets tell Pandoc to treat it as a parenthetical citation or its equivalent in the selected style.
+>
+> ##### Optional Quick Copy from Zotero
+>
+> Better BibTeX can copy or drag a Pandoc citation such as `[@key]` into Obsidian. This requires a one-time setup:
+>
+> 1. In Better BibTeX’s preferences, select **Pandoc citation** as the Quick Copy format.
+> 2. In Zotero’s Export preferences, select **Better BibTeX Quick Copy** as the default format.
+>
+> Because menu names can change, consult the current [Better BibTeX citation instructions](https://retorque.re/zotero-better-bibtex/citing/) if your options look different. Typing `[@key]` manually remains valid.
+>
+> #### 2. Citing a specific page
+>
+> Add a page number after a comma:
+>
+> ```markdown
 > This argument appears in Scott's essay [@scottGenderUsefulCategory1986, p. 1067].
 > ```
-> 
+>
 > For several pages, use `pp.`:
-> 
-> ```
+>
+> ```markdown
 > Scott develops this argument [@scottGenderUsefulCategory1986, pp. 1067–1070].
 > ```
-> 
-> ### 3. Citing more than one source
-> 
-> Sometimes several sources support the same statement. Put them inside one set of square brackets, separated by a semicolon:
-> 
-> ```
+>
+> #### 3. Citing more than one source
+>
+> Put the sources inside one pair of square brackets, separated by a semicolon:
+>
+> ```markdown
 > Historians have debated this question [@scottGenderUsefulCategory1986; @vickeryGoldenAgeSeparate1993].
 > ```
-> 
-> Pandoc knows that these are two separate sources.
-> 
-> ### 4. Adding words such as "see" or "compare"
-> 
-> You can include short instructions within a citation:
-> 
-> ```
+>
+> #### 4. Adding words such as “see” or “compare”
+>
+> You can include short instructions inside a citation:
+>
+> ```markdown
 > This distinction has been debated [see @scottGenderUsefulCategory1986, p. 1067; compare @vickeryGoldenAgeSeparate1993, chap. 2].
 > ```
-> 
+>
 > Words such as `see` and `compare` appear in the formatted citation.
-> 
-> ### 5. When you already mention the author's name
-> 
-> If the author's name appears in your sentence, you may want to avoid repeating it in the citation. Put a minus sign before `@`:
-> 
-> ```
+>
+> #### 5. When you already mention the author
+>
+> To avoid repeating the author’s name, place a minus sign before `@`:
+>
+> ```markdown
 > Scott makes this point explicitly [-@scottGenderUsefulCategory1986, p. 1067].
 > ```
-> 
-> The `-@` tells Pandoc to leave out the author's name in the formatted citation. This is useful in author-date styles.
-> 
-> You can also place the citation key directly in your sentence:
-> 
-> ```
+>
+> The `-@` tells Pandoc to omit the author’s name from the formatted citation. This is particularly useful in author-date styles.
+>
+> Pandoc also supports an author-in-text form:
+>
+> ```markdown
 > @scottGenderUsefulCategory1986 argues that gender is relational.
 > ```
-> 
-> This is Pandoc's author-in-text citation form. If you use a Zotero live-citation filter when exporting to Word, check that your filter supports this form.
-> 
-> ### 6. Putting citations in footnotes
-> 
-> You can place a citation inside an Obsidian Markdown footnote:
-> 
-> ```
+>
+> Better BibTeX’s live-citation filter treats author-in-text citations as an optional or emulated feature. Test this form with your filter version and citation style before using it throughout a manuscript.
+>
+> #### 6. Putting citations in footnotes
+>
+> A citation can appear inside an Obsidian Markdown footnote:
+>
+> ```markdown
 > This terminology requires qualification.[^1]
-> 
+>
 > [^1]: See [@scottGenderUsefulCategory1986, pp. 1067–1070].
 > ```
-> 
-> When exported to LibreOffice through our workflow, the Markdown footnote becomes a full footnote, with the citation inside it.
-> 
-> For the complete rules, see [Pandoc's official citation documentation](https://pandoc.org/demo/example1.html?utm_source=chatgpt.com#citations).
+>
+> In this workflow, the Markdown footnote becomes a LibreOffice footnote containing the live Zotero citation.
+>
+> For the complete syntax, see [Pandoc’s official citation documentation](https://pandoc.org/demo/example1.html#citations).
