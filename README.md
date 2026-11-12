@@ -370,3 +370,5 @@ Never click **Unlink Citations** on your working copy. Unlinking converts fields
 > In this workflow, the Markdown footnote becomes a LibreOffice footnote containing the live Zotero citation.
 >
 > For the complete syntax, see [Pandoc’s official citation documentation](https://pandoc.org/demo/example1.html#citations).
+
+Note: I used ChatGPT to help me develop updated user code and the text describing this workflow. 
