@@ -219,7 +219,7 @@ During conversion, `zotero.lua`:
 
 
 #### Download the Obsidian-ODT-Converter Program
-Download [`convert-to-odt.sh`](convert-to-odt.sh) and save it in this the conversion beside `zotero.lua`. Keep the filename exactly `convert-to-odt.sh`. 
+Download [convert-to-odt.sh]([convert-to-odt.sh](https://github.com/6500jmk4/obsidian-zotero-pandoc-odt/blob/main/convert-to-odt.sh)) and save it in this the conversion beside `zotero.lua`. Keep the filename exactly `convert-to-odt.sh`. 
 
 In Terminal, enter `chmod +x `, including the final space. Drag `convert-to-odt.sh` into Terminal and press **Return**.
 
